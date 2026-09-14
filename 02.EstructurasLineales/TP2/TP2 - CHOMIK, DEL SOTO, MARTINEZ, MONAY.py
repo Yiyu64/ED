@@ -180,7 +180,76 @@ procesar_radix("EJ4.txt")
 ####################################################
 #########            EJERCICIO 5           #########
 ####################################################
-
+print("\nEJERCICIO 5\n")
+ 
+def leer_grafo(nombre_archivo):
+    nodos = []
+    arcos = []
+    archivo = open(nombre_archivo, "r")
+    
+    for linea in archivo:
+        linea = linea.strip().split(',')
+        if linea[0] == "":
+            continue
+        
+        if linea[0] not in nodos:
+            nodos.append(linea[0])
+            
+        if len(linea) > 1 and linea[1] != "":
+            if linea[1] not in nodos:
+                nodos.append(linea[1])
+            arcos.append([linea[0], linea[1]])
+            
+    archivo.close()
+    return nodos, arcos
+ 
+def t_sort(nodos, arcos):
+    n = len(nodos)
+    R = [[] for _ in range(n)]
+    GE = [0]*n
+    
+    for arco in arcos:
+        origen = nodos.index(arco[0])
+        destino = nodos.index(arco[1])
+        R[origen].append(destino)
+        GE[destino] += 1
+    
+    cola = []
+    for i in range(n):
+        if GE[i] == 0:
+            cola.append(i)
+    
+    secuencia = []
+    while len(cola) > 0:
+        x = cola.pop(0)
+        secuencia.append(nodos[x])
+        
+        for y in R[x]:
+            GE[y] -= 1
+            if GE[y] == 0:
+                cola.append(y)
+    
+    if len(secuencia) < n:
+        return None
+    return secuencia
+ 
+def procesar_t_sort(nombre_archivo):
+    try:
+        nodos, arcos = leer_grafo(nombre_archivo)
+        print("Nodos: " + str(nodos))
+        print("Arcos: " + str(arcos))
+        
+        secuencia = t_sort(nodos, arcos)
+        
+        if secuencia == None:
+            print("La estructura es ciclica, no se puede calcular el T-Sort")
+        else:
+            print("T-Sort: " + " -> ".join(secuencia))
+            
+    except FileNotFoundError:
+        print("El archivo " + nombre_archivo + " no existe.")
+ 
+procesar_t_sort("EJ5.txt")
 ####################################################
 #########            EJERCICIO 6           #########
 ####################################################
@@ -265,5 +334,70 @@ ocupacion_max(INSCRIPTOS, CAPACIDAD, d)
 print("b.")
 alumnos_por_piso(2, INSCRIPTOS, d)
 
+####################################################
+#########            EJERCICIO 7           #########
+####################################################
+print("\nEJERCICIO 7\n")
+ 
+def armar_matriz(nodos, arcos):
+    n = len(nodos)
+    matriz = [[0]*n for _ in range(n)]
+    
+    for arco in arcos:
+        i = nodos.index(arco[0])
+        j = nodos.index(arco[1])
+        matriz[i][j] = 1
+        
+    return matriz
+ 
+def sort_topologico(nodos, matriz):
+    n = len(nodos)
+    borrados = [False]*n
+    secuencia = []
+    
+    for _ in range(n):
+        minimal = -1
+        
+        for j in range(n):
+            if borrados[j] == False:
+                tiene_entrada = False
+                for i in range(n):
+                    if borrados[i] == False and matriz[i][j] == 1:
+                        tiene_entrada = True
+                if tiene_entrada == False:
+                    minimal = j
+                    break
+        
+        if minimal == -1:
+            return None
+        
+        borrados[minimal] = True
+        secuencia.append(nodos[minimal])
+        
+    return secuencia
+ 
+def procesar_sort_topologico(nombre_archivo):
+    try:
+        nodos, arcos = leer_grafo(nombre_archivo)
+        matriz = armar_matriz(nodos, arcos)
+        
+        print("Nodos: " + str(nodos))
+        print("Matriz de adyacencia:")
+        for fila in matriz:
+            print(fila)
+        
+        secuencia = sort_topologico(nodos, matriz)
+        
+        if secuencia == None:
+            print("La estructura es ciclica, no se puede ordenar")
+        else:
+            print("Sort topologico: " + " -> ".join(secuencia))
+            
+    except FileNotFoundError:
+        print("El archivo " + nombre_archivo + " no existe.")
+ 
+procesar_sort_topologico("EJ7.txt")
+
 print("c.")
 alumnos_por_ala(2,1,2,INSCRIPTOS,d)
+
