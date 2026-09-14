@@ -250,6 +250,7 @@ def procesar_t_sort(nombre_archivo):
         print("El archivo " + nombre_archivo + " no existe.")
  
 procesar_t_sort("EJ5.txt")
+#procesar_t_sort("EJ5_ciclo.txt")
 ####################################################
 #########            EJERCICIO 6           #########
 ####################################################
@@ -334,6 +335,9 @@ ocupacion_max(INSCRIPTOS, CAPACIDAD, d)
 print("b.")
 alumnos_por_piso(2, INSCRIPTOS, d)
 
+print("c.")
+alumnos_por_ala(2,1,2,INSCRIPTOS,d)
+
 ####################################################
 #########            EJERCICIO 7           #########
 ####################################################
@@ -397,7 +401,3 @@ def procesar_sort_topologico(nombre_archivo):
         print("El archivo " + nombre_archivo + " no existe.")
  
 procesar_sort_topologico("EJ7.txt")
-
-print("c.")
-alumnos_por_ala(2,1,2,INSCRIPTOS,d)
-
