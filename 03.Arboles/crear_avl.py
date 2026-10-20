@@ -114,7 +114,7 @@ class ArbolAVL:
 
 def main():
     if len(sys.argv) < 2:
-        print("Uso: python crear-avl.py <archivo_datos>")
+        print("Uso: python crear_avl.py <archivo_datos>")
         sys.exit(1)
 
     nombre_archivo = sys.argv[1]
