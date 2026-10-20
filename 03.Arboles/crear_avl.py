@@ -122,7 +122,7 @@ def main():
 
     print(f"--- Leyendo datos de {nombre_archivo} e insertando en AVL ---")
     try:
-        archivo = open(nombre_archivo, 'r', encoding='utf-8')
+        archivo = open(nombre_archivo, 'r')
         for linea in archivo:
             if linea.strip(): 
                 valor = int(linea.strip())
@@ -147,3 +147,6 @@ def main():
 
     print("\n--- Arbol AVL resultante (Barrido por Niveles) ---")
     avl.imprimir_por_niveles()
+
+if __name__ == '__main__':
+    main()

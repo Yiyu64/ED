@@ -19,7 +19,7 @@ def barrido_simetrico(arbol):
 if __name__ == "__main__":
     nombre_archivo = sys.argv[1]
     
-    with open(nombre_archivo, 'r', encoding='utf-16') as archivo:
+    with open(nombre_archivo, 'r') as archivo:
         arbol_binario = [int(linea.strip()) for linea in archivo]
         
     resultado = barrido_simetrico(arbol_binario)

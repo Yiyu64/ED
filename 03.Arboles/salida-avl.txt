@@ -1,0 +1,38 @@
+--- Leyendo datos de arbol.txt e insertando en AVL ---
+Insertando: 80
+Insertando: 20
+Insertando: 60
+Desbalance en 80 tras insertar 60. Rotacion Izquierda-Derecha (LR).
+Insertando: 100
+Insertando: 140
+Desbalance en 80 tras insertar 140. Rotacion Izquierda (RR).
+Insertando: 5
+Insertando: 15
+Desbalance en 20 tras insertar 15. Rotacion Izquierda-Derecha (LR).
+Insertando: 25
+Insertando: 35
+Desbalance en 20 tras insertar 35. Rotacion Izquierda (RR).
+Insertando: 45
+Desbalance en 15 tras insertar 45. Rotacion Izquierda (RR).
+Insertando: 55
+Desbalance en 35 tras insertar 55. Rotacion Izquierda (RR).
+Insertando: 65
+Insertando: 75
+Desbalance en 80 tras insertar 75. Rotacion Izquierda-Derecha (LR).
+Insertando: 85
+Desbalance en 100 tras insertar 85. Rotacion Izquierda-Derecha (LR).
+Insertando: 95
+Insertando: 105
+Insertando: 115
+Desbalance en 140 tras insertar 115. Rotacion Izquierda-Derecha (LR).
+Insertando: 125
+Desbalance en 80 tras insertar 125. Rotacion Izquierda (RR).
+Insertando: 135
+Desbalance en 140 tras insertar 135. Rotacion Izquierda-Derecha (LR).
+Insertando: 145
+Desbalance en 115 tras insertar 145. Rotacion Izquierda (RR).
+Insertando: 155
+Desbalance en 140 tras insertar 155. Rotacion Izquierda (RR).
+
+--- Arbol AVL resultante (Barrido por Niveles) ---
+60 25 100 15 45 80 135 5 20 35 55 75 85 115 145 65 95 105 125 140 155 

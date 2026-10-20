@@ -18,7 +18,7 @@ r = int(sys.argv[1])
 nombre_archivo = sys.argv[2]
 n = 0
 
-with open(nombre_archivo, 'r', encoding='utf-8') as archivo:
+with open(nombre_archivo, 'r') as archivo:
     for linea in archivo:
         if linea.strip() != "":
             n = n + 1

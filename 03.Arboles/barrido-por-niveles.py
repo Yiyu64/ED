@@ -15,7 +15,7 @@ if __name__ == "__main__":
     r = int(sys.argv[1])
     nombre_archivo = sys.argv[2]
     
-    with open(nombre_archivo, 'r', encoding='utf-16') as archivo:
+    with open(nombre_archivo, 'r') as archivo:
         APD = [int(linea.strip()) for linea in archivo]
         
     resultado = barrido_por_niveles(APD, r)
