@@ -5,4 +5,4 @@ python barrido-pre-orden.py 4 arbol.txt > pre-orden.txt
 python barrido-post-orden.py 4 arbol.txt > post-orden.txt
 python barrido-por-nievles.py 4 arbol.txt > por-niveles.txt
 python barrido-simetrico.py arbol-binario.txt > simetrico.txt
-python crear-avl.py datos-prueba.txt
+python crear-avl.py datos-prueba.txt > salida-avl.txt
